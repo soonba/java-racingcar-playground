@@ -1,32 +1,47 @@
 package racingcar;
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CarsTest {
 
     static Cars testCars;
 
-    @BeforeAll
-    static void setup() {
-        List<Car> testCarList = new ArrayList<>();
-        testCarList.add(new Car("a"));
-        testCarList.add(new Car("b"));
-        testCarList.add(new Car("c"));
-        testCars = new Cars(testCarList);
+    @BeforeEach
+    void setup() {
+        testCars = new Cars("a,b,c,d");
     }
 
     @Test
-    public void 숫자4_이상만_전진1() {
-        Car car = new Car("foo");
-        car.run(4);
-        assertThat(car.getScore()).isEqualTo(1);
-        car.run(3);
-        assertThat(car.getScore()).isEqualTo(1);
+    void 승자() {
+        testCars.race(0, 5);
+        testCars.race(1, 3);
+        testCars.race(2, 4);
+        testCars.race(3, 9);
+        List<Car> winner = testCars.getWinner();
+        assertThat(winner.get(0).getScore()).isEqualTo(1);
+        assertThat(winner.get(1).getScore()).isEqualTo(1);
+        assertThat(winner.get(2).getScore()).isEqualTo(1);
     }
+
+    @Test
+    void 파싱() {
+        Cars cars = new Cars("aa,db,-c,d1");
+        assertThat(cars.size()).isEqualTo(4);
+    }
+
+    @Test
+    void 결과() {
+        testCars.race(0, 5);
+        testCars.race(1, 3);
+        testCars.race(2, 4);
+        testCars.race(3, 9);
+        GameResult result = testCars.getResult();
+        System.out.println(result.print());
+    }
+
 }
