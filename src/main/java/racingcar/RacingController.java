@@ -5,26 +5,29 @@ import java.security.InvalidParameterException;
 
 public class RacingController {
 
-    public static void main(String[] args) throws IOException {
-
-        OutputView.initNames();
-        String carNames = InputView.getCarNames();
-        try {
-            Cars cars = new Cars(carNames);
-
-
+    public void run() throws IOException {
+        Cars cars = makeCars();
         OutputView.initTests();
         int raceTime = InputView.getRaceTime();
-
 
         for (int i = 0; i < raceTime; i++) {
             races(cars);
             OutputView.printResult(cars);
         }
         OutputView.printWinner(cars);
+    }
+
+    private Cars makeCars() throws IOException {
+        Cars cars;
+        try {
+            OutputView.initNames();
+            String carNames = InputView.getCarNames();
+            cars = new Cars(carNames);
         } catch (InvalidParameterException e) {
             OutputView.printInvalidParameterException(e);
+            return makeCars();
         }
+        return cars;
     }
 
     private static void races(Cars cars) {

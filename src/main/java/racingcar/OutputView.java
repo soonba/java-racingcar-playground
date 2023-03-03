@@ -27,6 +27,5 @@ public class OutputView {
 
     public static void printInvalidParameterException(InvalidParameterException e) {
         System.out.println(e.getMessage());
-        System.out.println("게임을 다시 시작해주세요.");
     }
 }
