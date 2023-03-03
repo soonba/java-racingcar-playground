@@ -7,22 +7,22 @@ import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CarsTest {
+public class GameTest {
 
-    static Cars testCars;
+    static Game testGame;
 
     @BeforeEach
     void setup() {
-        testCars = new Cars("a,b,c,d");
+        testGame = new Game("a,b,c,d");
     }
 
     @Test
     void 승자() {
-        testCars.race(0, 5);
-        testCars.race(1, 3);
-        testCars.race(2, 4);
-        testCars.race(3, 9);
-        List<Car> winner = testCars.getWinner();
+        testGame.race(0, 5);
+        testGame.race(1, 3);
+        testGame.race(2, 4);
+        testGame.race(3, 9);
+        List<Car> winner = testGame.getWinner();
         assertThat(winner.get(0).getScore()).isEqualTo(1);
         assertThat(winner.get(1).getScore()).isEqualTo(1);
         assertThat(winner.get(2).getScore()).isEqualTo(1);
@@ -30,17 +30,17 @@ public class CarsTest {
 
     @Test
     void 파싱() {
-        Cars cars = new Cars("aa,db,-c,d1");
-        assertThat(cars.size()).isEqualTo(4);
+        Game game = new Game("aa,db,-c,d1");
+        assertThat(game.size()).isEqualTo(4);
     }
 
     @Test
     void 결과() {
-        testCars.race(0, 5);
-        testCars.race(1, 3);
-        testCars.race(2, 4);
-        testCars.race(3, 9);
-        GameResult result = testCars.getResult();
+        testGame.race(0, 5);
+        testGame.race(1, 3);
+        testGame.race(2, 4);
+        testGame.race(3, 9);
+        GameResult result = testGame.getResult();
         System.out.println(result.print());
     }
 

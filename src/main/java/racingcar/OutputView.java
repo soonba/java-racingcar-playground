@@ -12,14 +12,14 @@ public class OutputView {
         System.out.println("시도할 회수는 몇회인가요?");
     }
 
-    public static void printResult(Cars cars) {
-        GameResult result = cars.getResult();
+    public static void printResult(Game game) {
+        GameResult result = game.getResult();
         System.out.println(result.print());
     }
 
-    public static void printWinner(Cars cars) {
+    public static void printWinner(Game game) {
         StringBuilder sb = new StringBuilder();
-        List<Car> winners = cars.getWinner();
+        List<Car> winners = game.getWinner();
         winners.forEach(car -> sb.append(car.getName()).append(", "));
         String names = sb.substring(0, sb.length() - 2);
         System.out.println(names + "가 최종 우승했습니다.");

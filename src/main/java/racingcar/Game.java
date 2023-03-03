@@ -6,10 +6,10 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Cars {
+public class Game {
     final List<Car> carList = new ArrayList<>();
 
-    public Cars(String carString) throws InvalidParameterException{
+    public Game(String carString) throws InvalidParameterException{
         parse(carString);
     }
 

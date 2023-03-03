@@ -6,33 +6,33 @@ import java.security.InvalidParameterException;
 public class RacingController {
 
     public void run() throws IOException {
-        Cars cars = makeCars();
+        Game game = makeGame();
         OutputView.initTests();
         int raceTime = InputView.getRaceTime();
 
         for (int i = 0; i < raceTime; i++) {
-            races(cars);
-            OutputView.printResult(cars);
+            races(game);
+            OutputView.printResult(game);
         }
-        OutputView.printWinner(cars);
+        OutputView.printWinner(game);
     }
 
-    private Cars makeCars() throws IOException {
-        Cars cars;
+    private Game makeGame() throws IOException {
+        Game game;
         try {
             OutputView.initNames();
             String carNames = InputView.getCarNames();
-            cars = new Cars(carNames);
+            game = new Game(carNames);
         } catch (InvalidParameterException e) {
             OutputView.printInvalidParameterException(e);
-            return makeCars();
+            return makeGame();
         }
-        return cars;
+        return game;
     }
 
-    private static void races(Cars cars) {
-        for (int i = 0; i < cars.size(); i++) {
-            cars.race(i,randomGenerator());
+    private static void races(Game game) {
+        for (int i = 0; i < game.size(); i++) {
+            game.race(i,randomGenerator());
         }
     }
 
