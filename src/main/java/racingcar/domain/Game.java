@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.security.InvalidParameterException;
 import java.util.ArrayList;

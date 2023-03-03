@@ -1,4 +1,8 @@
-package racingcar;
+package racingcar.view;
+
+import racingcar.domain.Car;
+import racingcar.domain.Game;
+import racingcar.domain.GameResult;
 
 import java.security.InvalidParameterException;
 import java.util.List;

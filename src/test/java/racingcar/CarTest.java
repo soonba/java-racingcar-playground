@@ -2,6 +2,7 @@ package racingcar;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.Car;
 
 import java.security.InvalidParameterException;
 

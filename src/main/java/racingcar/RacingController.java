@@ -1,5 +1,9 @@
 package racingcar;
 
+import racingcar.domain.Game;
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+
 import java.io.IOException;
 import java.security.InvalidParameterException;
 
