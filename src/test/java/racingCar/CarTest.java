@@ -13,14 +13,14 @@ public class CarTest {
     @Test
     void _4이상_전진() {
         Car car = new Car("a");
-        car.run(4);
+        car.race(4);
         assertThat(car.getPosition()).isEqualTo(new Position(1));
     }
 
     @Test
     void _3이하_가만히() {
         Car car = new Car("a");
-        car.run(3);
+        car.race(3);
         assertThat(car.getPosition()).isEqualTo(new Position(0));
     }
 

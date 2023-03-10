@@ -15,7 +15,7 @@ public class Car {
         this.position = new Position(position);
     }
 
-    public void run(int randomNo) {
+    public void race(int randomNo) {
         if (randomNo >= MINIMUM_NUMBER_TO_MOVE) {
             this.position = position.move();
         }
@@ -36,5 +36,13 @@ public class Car {
 
     public boolean isSamePosition(Position position1) {
         return this.position.equals(position1);
+    }
+
+    public String getPrint() {
+        return name + " : " + getBars();
+    }
+
+    private String getBars() {
+        return position.getBars();
     }
 }
