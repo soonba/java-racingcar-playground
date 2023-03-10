@@ -33,4 +33,8 @@ public class Car {
         if (name.length() > 5) throw new IllegalArgumentException("이름은 5자를 초과할 수 없음");
         return name;
     }
+
+    public boolean isSamePosition(Position position1) {
+        return this.position.equals(position1);
+    }
 }

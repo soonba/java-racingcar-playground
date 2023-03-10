@@ -10,11 +10,15 @@ public class Position {
     }
 
     public Position move() {
-        return new Position(value+1);
+        return new Position(value + 1);
     }
 
     private Integer validate(int value) {
-        if(value < 0) throw new IllegalArgumentException("포지션은 음수가 아닙니다.");
+        if (value < 0) throw new IllegalArgumentException("포지션은 음수가 아닙니다.");
+        return value;
+    }
+
+    public Integer getValue() {
         return value;
     }
 
